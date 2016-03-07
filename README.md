@@ -33,7 +33,7 @@ $ git init
 
 
 
-## Add and commit 
+## Add and commit
 
 Create file (Stats as untracked)
 ```
@@ -56,7 +56,7 @@ Commit changes (A snapshot of those on the stage)
 git commit -m "Create a README"
 ```
 
-No new or modified files since last commit 
+No new or modified files since last commit
 ```
 $ git status
 ```
@@ -124,7 +124,7 @@ Unstaging Files
 $ git reset HEAD <file>
 ```
 
-Discard Changes 
+Discard Changes
 * Reset in to the state that file was in at the last commit, or the last time it was changed
 * Blow away all changes since last commit
 ```
@@ -133,21 +133,21 @@ $ git checkout -- <file>
 
 
 ## Skip staging and commit (Don't do these after you push!!!)
-  
+
 Add changes from all tracked files
 
 * Add any of our tracked files to the stage and then commit them
 * Doesn't add new (untracked) files
 
 ```
-$ git commit -a -m "Modify..." 
+$ git commit -a -m "Modify..."
 ```
 
 
 ## Undoing a commit
 
 * --soft : Reset into staging
-* HEAD^ : Move to commit before 'HEAD' 
+* HEAD^ : Move to commit before 'HEAD'
 
 ```
 $ git reset --soft HEAD^
@@ -156,9 +156,9 @@ $ git reset --soft HEAD^
 Maybe we forgot to add a file
 
 * --amend : Add to the last commit
-* -m "message" : New commit message 
+* -m "message" : New commit message
 * Whatever has been staged is added to last commit
- 
+
 ```
 $ git add a.txt
 $ git commit --amend -m "New Message"
@@ -166,12 +166,12 @@ $ git commit --amend -m "New Message"
 
 Useful commands
 
-Undo last commit, put changes into staging 
+Undo last commit, put changes into staging
 ```
 $ git reset --soft HEAD^
 ```
 
-Change the last commit 
+Change the last commit
 ```
 $ git commit --amend -m "New Message"
 ```
@@ -188,15 +188,15 @@ $ git reset --hard HEAD^^
 
 
 
-## Remots
+## Remote
 
 Adding a remote
 
 * add : New remote
-* origin : Our name for this remote (like web browser's bookmark!) 
+* origin : Our name for this remote (like web browser's bookmark!)
 * last arg : Address  
 ```
-$ git remote add origin https://github.com/yoyojyv/... 
+$ git remote add origin https://github.com/yoyojyv/...
 ```
 
 Show remote repositories
@@ -208,7 +208,7 @@ $ git remote -v
 Pushing to remote
 
 * origin : remote repository name
-* master : local branch to push 
+* master : local branch to push
 
 ```
 $ git push -u origin master
@@ -229,12 +229,12 @@ $ git remote add <name> <address>
 ```
 
 
-To remove remotes 
+To remove remotes
 ```
 $ git remote rm <name>
 ```
 
-To push to remotes 
+To push to remotes
 
 * <branch> usually master
 
@@ -244,7 +244,7 @@ $ git push -u <name> <branch>
 
 
 
-## Cronning & Branching
+## Croning & Branching
 
 
 ### Clone
@@ -257,7 +257,7 @@ Cloning a repository
 $ git clone <URL>
 ```
 
-or 
+or
 
 * FOLDER : local folder name
 
@@ -269,7 +269,7 @@ $ git clone <URL> <FOLDER>
 Git clone work
 
 - Downloads the entire repository into a new directory
-- Adds the 'origin' remote, pointing the clone URL 
+- Adds the 'origin' remote, pointing the clone URL
 - Checks out initial branch (likely master) : sets the HEAD
 
 
@@ -280,19 +280,19 @@ $ git remote -v
 
 
 
-### Branch 
+### Branch
 
 Branching out
 
 * branch created from master
-* HEAD still on master 
+* HEAD still on master
 
 ```
 $ git branch <BRANCH-NAME>
 ```
 
 
-Show branches 
+Show branches
 
 ```
 $ git branch
@@ -310,29 +310,29 @@ OR
 
 * Using a single command, create and check out.
 ```
-$ git checkout -b <BRANCH-NAME> 
+$ git checkout -b <BRANCH-NAME>
 ```
- 
+
 
 Merge
 
 * merge brings one branch's changes into another
- 
+
 ```
 $ git checkout master
 $ git merge <BRANCH-NAME>
 ```
 
 
-Noting was modified on master in the meantime. 
+Noting was modified on master in the meantime.
 
 Fast-forward
 
-> Because the commit pointed to by the branch you merged in was directly upstream of the commit you’re on, Git simply moves the pointer forward. 
-> To phrase that another way, when you try to merge one commit with a commit that can be reached by following the first commit’s history, 
+> Because the commit pointed to by the branch you merged in was directly upstream of the commit you’re on, Git simply moves the pointer forward.
+> To phrase that another way, when you try to merge one commit with a commit that can be reached by following the first commit’s history,
 > Git simplifies things by moving the pointer forward because there is no divergent work to merge together – this is called a “fast-forward.”
 
->  Merge할 브랜치가 가리키고 있던 커밋이 현 브랜치가 가리키는 것보다 '앞으로 진행한' 커밋이기 때문에 master 브랜치 포인터는 최신 커밋으로 이동한다. 이런 Merge 방식을 'Fast forward'라고 부른다. 
+>  Merge할 브랜치가 가리키고 있던 커밋이 현 브랜치가 가리키는 것보다 '앞으로 진행한' 커밋이기 때문에 master 브랜치 포인터는 최신 커밋으로 이동한다. 이런 Merge 방식을 'Fast forward'라고 부른다.
 
 
 Branch clean up
@@ -354,7 +354,7 @@ Recursive merging
 
 Check log!
 
-* A commit was created to merge the two branches. 
+* A commit was created to merge the two branches.
 
 ```
 $ git log
@@ -384,7 +384,7 @@ Understanding pull
 $ git pull
 ```
 
-1. Fetch (or Sync)  our local repository with the remote one (It's samle thing as doing `$git fetch` command)
+1. Fetch (or Sync)  our local repository with the remote one (It's sample thing as doing `$git fetch` command)
     * Fetch doesn't actually update any of our local code.
 2. Merges the origin/master with master (`$git merge origin/master`)
 
@@ -399,7 +399,7 @@ $ git pull
 ...
 
 CONFLICT (content): Merge conflict in a.txt
-Automatic merge filed; fix conflicts and the commot the result.
+Automatic merge filed; fix conflicts and the commit the result.
 ```
 
 ```
@@ -408,14 +408,14 @@ $ git status
 ...
 ...
 #
-# both modified:        a.txt 
+# both modified:        a.txt
 #
 
 ```
 
-Need to edit these (both modified) files. 
+Need to edit these (both modified) files.
 
-open a.txt file and 
+open a.txt file and
 ```
 here is my a.txt
 
@@ -427,7 +427,7 @@ bbb // other version
 a123a123123123123123123123312....
 ```
 
-and edit file and correct 
+and edit file and correct
 ```
 here is my a.txt
 
@@ -448,12 +448,12 @@ git push
 
 
 
-### Branching 
+### Branching
 
 
 Creating a remote branch
 
-* it push origin A_BRANCH : Links local branch to the remote branch (tracking) 
+* it push origin A_BRANCH : Links local branch to the remote branch (tracking)
 
 ```
 $ git checkout -b <A_BRANCH>
@@ -461,7 +461,7 @@ $ git push origin <A_BRANCH>
 ```
 
 
-Pushing to the branch 
+Pushing to the branch
 
 ```
 $ git add b.txt
@@ -482,7 +482,7 @@ Pulling new branches
 ```
 $ git pull
 
-... 
+...
 ...
 
 From https://github.com/xxx/xxx
@@ -515,9 +515,9 @@ $ git remote show origin
 
 
 
-Removing a branch 
+Removing a branch
 
-* `:` => Deletes remote branch 
+* `:` => Deletes remote branch
 
 ```
 $ git push origin :<A_BRANCH>
@@ -529,16 +529,16 @@ $ git branch -d <A_BRANCH>
   If you are sure want to delete it, run `git branch -D <A_BRANCH>`
 ```
 
-Are you sure? 
+Are you sure?
 ```
 git branch -D <A_BRANCH>
 ```
 
 
-On deleted remote branch 
+On deleted remote branch
 
 Other user
- 
+
 ```
 $ git commit -m -a "Add some changes"
 $ git push                                      // No remote to push to(it's just a local branch now)
@@ -556,7 +556,7 @@ To clean up deleted remote branches
 ```
 $ git remote prune origin  
 ```
- 
+
 
 
 Tagging
@@ -568,7 +568,7 @@ List all tags
 $ git tags
 ```
 
-Check out code at commit 
+Check out code at commit
 ```
 $ git checkout v0.0.1
 ```
@@ -586,11 +586,10 @@ $ git push --tags
 ```
 
 
-git fetch 
+git fetch
 > Fetch : only update local branch information
 > 중앙 저장소의 소스를 로컬 저장소로 가져온다! 그러나 현재 작업중인 소스들을 변경하는 Merge 작업을 하지는 않는다
 
 git pull
-> Pull : pull will auto merge branches 
+> Pull : pull will auto merge branches
 > 중앙 저장소의 소스를 로컬 저장소로 가져온다! 또한 현재 작업중인 소스들의 Merge 작업까지 통합하여 수행한다
-
